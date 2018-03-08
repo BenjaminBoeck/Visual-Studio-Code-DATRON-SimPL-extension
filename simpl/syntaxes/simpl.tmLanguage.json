@@ -1,0 +1,93 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "SimPL",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#methods"
+		},
+		{
+			"include": "#header"
+		},
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#test"
+		},
+		{
+			"include": "#annotation"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.simpl",
+				"match": "\\b(if|endif|while|endwhile|case|endcase|exit|not|for|endfor|foreach|endforeach|in|sizeof|to|return|returns|hasvalue|optional|break|program|end|endprogram|export|using|import)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.simpl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.simpl",
+					"match": "\\\\."
+				}
+			]
+		},
+		"test":{
+			"patterns": [
+				{
+					"name":"entity.name.tag.simpl",
+					"match":"\\b(number|string|structure|sequence|reference|action|)\\b"
+				}				
+			]
+		},		
+		"methods":{
+			"patterns": [
+				{
+					"name":"entity.name.tag.simpl",
+					"match":"\\b(number|Absolute|Incremental|Rapid|Line|Arc|Feed|MovingDirection|EndlessMotion|RotatoryAxisRadius|Dynamic|Smoothing|SetFeedTechnology|ToolCompensation|WorkPlane|SetWcs|SetWcsOnTcp|CreateWcs|SaveWcs|LoadWcs|ResetWcs|DeleteWcs|ShiftWcsAbs|ShiftWcsInc|RotateWcsAbs|RotateWcsInc|SetWcsInitial|ShiftLcsAbs|ScaleLcsAbs|ShiftLcsInc|RotateLcsAbs|RotateLcsInc|ResetLcs|SetLcsInitial|SafeZHeightForWorkpiece|Spindle|Rpm|SpraySystem|Coolant|SprayTechnology|SprayDirection|Suction|BeginBlock|EndBlock|Dialog|StatusMessage|PauseConditionState|Sleep|RunExternalSequence|Vacuum|VacuumSelection|MoveToSafetyPosition|SafeRapid|PrePositioning|MoveToParkPosition|Tool|MeasuringTolerance|MeasureToolLength|PrepareXyzSensor|UnprepareXyzSensor|EdgeMeasure|RectangleMeasure|CircleMeasure|CornerMeasure|CylinderMeasure|SurfaceMeasure|RectFromMid|RectangleCavity|CircleCavity|Drill|DrillMilling|CircleFromMid|RectangleFace|CircleFace|HelixWithFullCircle|Helix|Thread|SpecialThread|ThreadCutting|SurfaceCompensation|SurfaceCompensationZGridMeasure|Pi|E|OptionalBreak|)\\b"
+				}				
+			]
+		},
+		"header":{
+			"patterns": [
+				{
+					"name":"meta.preprocessor.simpl",
+					"match":"\\b(module)\\b"
+				}				
+			]
+		},
+		"comment":{
+			"patterns": [
+				{
+					"name":"comment.line.simpl",
+					"match": "#.*"
+				},
+				{
+					"name":"comment.line.simpl",
+					"begin": "<--",
+					"end": "-->"
+				}
+			]
+		},
+		"annotation":{
+			"patterns": [
+				{
+					"name":"meta.preprocessor.string.simpl",
+					"begin":"@",
+					"end":"@"
+				}
+			]
+		}
+	},
+	"scopeName": "source.simpl"
+}

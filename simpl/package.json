@@ -1,0 +1,26 @@
+{
+    "name": "simpl",
+    "displayName": "SimPL",
+    "description": "Syntax Highlither for DATRON SimPL CNC Files",
+    "version": "0.0.1",
+    "publisher": "BenjaminBoeck",
+    "engines": {
+        "vscode": "^1.20.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "simpl",
+            "aliases": ["SimPL", "simpl"],
+            "extensions": [".simpl"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "simpl",
+            "scopeName": "source.simpl",
+            "path": "./syntaxes/simpl.tmLanguage.json"
+        }]
+    }
+}
