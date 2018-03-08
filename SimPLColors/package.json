@@ -1,0 +1,22 @@
+{
+    "name": "SimPLColors",
+    "displayName": "SimPLColors",
+    "description": "Color Theme for the DATRON SimPL Language",
+    "version": "0.0.1",
+    "publisher": "BenjaminBoeck",
+    "engines": {
+        "vscode": "^1.21.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "SimPL",
+                "uiTheme": "vs-dark",
+                "path": "./themes/SimPL-color-theme.json"
+            }
+        ]
+    }
+}

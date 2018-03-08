@@ -1,34 +1,35 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "SimPL",
-	"patterns": [
+	"patterns": [			
+		{
+			"include": "#comment"
+		},
 		{
 			"include": "#keywords"
+		},	
+		{
+			"include": "#methods"
+		},	
+		{
+			"include": "#annotation"
 		},
 		{
 			"include": "#strings"
 		},
 		{
-			"include": "#methods"
+			"include": "#types"
 		},
 		{
-			"include": "#header"
-		},
-		{
-			"include": "#comment"
-		},
-		{
-			"include": "#test"
-		},
-		{
-			"include": "#annotation"
+			"include": "#Identifier"
 		}
+
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.simpl",
-				"match": "\\b(if|endif|while|endwhile|case|endcase|exit|not|for|endfor|foreach|endforeach|in|sizeof|to|return|returns|hasvalue|optional|break|program|end|endprogram|export|using|import)\\b"
+				"match": "\\b(if|endif|while|endwhile|case|endcase|exit|not|for|endfor|foreach|endforeach|in|sizeof|to|return|returns|hasvalue|optional|break|program|end|endprogram|export|using|import|append|module)\\b"
 			}]
 		},
 		"strings": {
@@ -42,11 +43,11 @@
 				}
 			]
 		},
-		"test":{
+		"types":{
 			"patterns": [
 				{
 					"name":"entity.name.tag.simpl",
-					"match":"\\b(number|string|structure|sequence|reference|action|)\\b"
+					"match":"\\b(number|string|structure|sequence|reference|action)\\b"
 				}				
 			]
 		},		
@@ -54,15 +55,7 @@
 			"patterns": [
 				{
 					"name":"entity.name.tag.simpl",
-					"match":"\\b(number|Absolute|Incremental|Rapid|Line|Arc|Feed|MovingDirection|EndlessMotion|RotatoryAxisRadius|Dynamic|Smoothing|SetFeedTechnology|ToolCompensation|WorkPlane|SetWcs|SetWcsOnTcp|CreateWcs|SaveWcs|LoadWcs|ResetWcs|DeleteWcs|ShiftWcsAbs|ShiftWcsInc|RotateWcsAbs|RotateWcsInc|SetWcsInitial|ShiftLcsAbs|ScaleLcsAbs|ShiftLcsInc|RotateLcsAbs|RotateLcsInc|ResetLcs|SetLcsInitial|SafeZHeightForWorkpiece|Spindle|Rpm|SpraySystem|Coolant|SprayTechnology|SprayDirection|Suction|BeginBlock|EndBlock|Dialog|StatusMessage|PauseConditionState|Sleep|RunExternalSequence|Vacuum|VacuumSelection|MoveToSafetyPosition|SafeRapid|PrePositioning|MoveToParkPosition|Tool|MeasuringTolerance|MeasureToolLength|PrepareXyzSensor|UnprepareXyzSensor|EdgeMeasure|RectangleMeasure|CircleMeasure|CornerMeasure|CylinderMeasure|SurfaceMeasure|RectFromMid|RectangleCavity|CircleCavity|Drill|DrillMilling|CircleFromMid|RectangleFace|CircleFace|HelixWithFullCircle|Helix|Thread|SpecialThread|ThreadCutting|SurfaceCompensation|SurfaceCompensationZGridMeasure|Pi|E|OptionalBreak|)\\b"
-				}				
-			]
-		},
-		"header":{
-			"patterns": [
-				{
-					"name":"meta.preprocessor.simpl",
-					"match":"\\b(module)\\b"
+					"match":"\\b(Absolute|Incremental|Rapid|Line|Arc|Feed|MovingDirection|EndlessMotion|RotatoryAxisRadius|Dynamic|Smoothing|SetFeedTechnology|ToolCompensation|WorkPlane|SetWcs|SetWcsOnTcp|CreateWcs|SaveWcs|LoadWcs|ResetWcs|DeleteWcs|ShiftWcsAbs|ShiftWcsInc|RotateWcsAbs|RotateWcsInc|SetWcsInitial|ShiftLcsAbs|ScaleLcsAbs|ShiftLcsInc|RotateLcsAbs|RotateLcsInc|ResetLcs|SetLcsInitial|SafeZHeightForWorkpiece|Spindle|Rpm|SpraySystem|Coolant|SprayTechnology|SprayDirection|Suction|BeginBlock|EndBlock|Dialog|StatusMessage|PauseConditionState|Sleep|RunExternalSequence|Vacuum|VacuumSelection|MoveToSafetyPosition|SafeRapid|PrePositioning|MoveToParkPosition|Tool|MeasuringTolerance|MeasureToolLength|PrepareXyzSensor|UnprepareXyzSensor|EdgeMeasure|RectangleMeasure|CircleMeasure|CornerMeasure|CylinderMeasure|SurfaceMeasure|RectFromMid|RectangleCavity|CircleCavity|Drill|DrillMilling|CircleFromMid|RectangleFace|CircleFace|HelixWithFullCircle|Helix|Thread|SpecialThread|ThreadCutting|SurfaceCompensation|SurfaceCompensationZGridMeasure|Pi|E|OptionalBreak)\\b"
 				}				
 			]
 		},
@@ -85,6 +78,22 @@
 					"name":"meta.preprocessor.string.simpl",
 					"begin":"@",
 					"end":"@"
+				}
+			]
+		},
+		"Identifier":{
+			"patterns": [
+				{
+					"name":"cnc.xval.simpl",
+					"match": "\\b(X=[\\d\\.\\+\\-]+)\\b"
+				},			
+				{
+					"name":"cnc.yval.simpl",
+					"match": "\\b(Y=[\\d\\.\\+\\-]+)\\b"
+				},	
+				{
+					"name":"cnc.zval.simpl",
+					"match": "\\b(Z=[\\d\\.\\+\\-]+)\\b"
 				}
 			]
 		}
