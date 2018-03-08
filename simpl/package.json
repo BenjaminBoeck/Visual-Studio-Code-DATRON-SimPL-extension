@@ -4,6 +4,9 @@
     "description": "Syntax highlighter for DATRON SimPL cnc files",
     "version": "0.0.1",
     "publisher": "BenjaminBoeck",
+    "repository": {
+        "url": "https://github.com/BenjaminBoeck/Visual-Studio-Code-DATRON-SimPL-extension"
+    },
     "engines": {
         "vscode": "^1.20.0"
     },

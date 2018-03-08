@@ -85,7 +85,7 @@
 			"patterns": [
 				{
 					"name":"cnc.xval.simpl",
-					"match": "\\b(X=[\\d\\.\\+\\-]+)\\b"
+					"match": "\\b([X]=[\\d\\.\\+\\-]+)\\b"
 				},			
 				{
 					"name":"cnc.yval.simpl",
